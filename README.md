@@ -66,10 +66,12 @@ Below is the complete state and transition table derived from the diagram above.
 | triggered | 0 | 1 | triggered |
 | triggered | 1 | 1 | triggered |
 
+From this table, we can derive K-maps for each state:
 
-## K-Map
-TBC
+disarmed
+
+| | **00** | **01** |
+| **0** | 1 | 0 |
+| **1** | 1 | 0 |
 
 
-## Truth Table
-TBC
