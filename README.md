@@ -11,8 +11,8 @@ And requires 2 inputs:
 - motion detected
 
 
-## How it Works + Diagram
-The alarm is disarmed by default, therefore its initial state is 'disarmed'.
+## How it Works
+The alarm is disarmed by default, therefore its initial state is 'disarmed'. Take a look at the diagram below showing how the machine works.
 
 ```mermaid
 graph LR;
@@ -32,8 +32,7 @@ G --> D;
 E --> D;
 ```
 
-
-## State and Transition Table
+Below is a state and transition table derived from the diagram above.
 
 | Current State | Input: Door Open | Input: Motion Detected | Next State |
 | --- | --- | --- | --- |
