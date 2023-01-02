@@ -7,12 +7,19 @@ This simple FSM contains 3 states:
 - triggered
 
 And requires 2 inputs:
-- door open (door is not locked)
+- door open
 - motion detected
 
 
 ## How it Works
 The alarm is disarmed by default, therefore its initial state is 'disarmed'. Take a look at the diagram below showing how the machine works.
+
+Input syntax:
+doorOpen,motionDetected
+doorOpen = 0       --> Door is locked
+doorOpen = 1       --> Door is unlocked/open
+motionDetected = 0 --> No motion is detected
+motionDetected = 1 --> Motion is detected
 
 ```mermaid
 graph LR;
@@ -33,6 +40,9 @@ C --> B;
 G --> D;
 E --> D;
 ```
+Key points to take away:
+- As long as the door is locked and there is no motion detected, the system will remain disarmed. As such, inputting 0,0 repeatedly won't do anything to arm the system.
+- Save file first, TBC.
 
 Below is a state and transition table derived from the diagram above.
 
