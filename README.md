@@ -36,6 +36,7 @@ sequenceDiagram
   triggered ->> armed: Door Closed, No Motion
 ```
 
+The diagram above can be broken down into the one below:
 ```mermaid
 graph LR;
 A[Start] --> B[disarmed];
@@ -55,7 +56,7 @@ C --> B;
 G --> F;
 E --> D;
 ```
-What is the diagram above saying?
+What are the diagrams above saying?
 - As long as the door is locked and there is no motion detected, the system will remain disarmed. As such, inputting 0,0 repeatedly won't do anything to arm the system.
 - The system arms itself if the door is open and/or motion is detected. In other words, any input other than 0,0 while the system is disarmed, will arm the system.
 - The system disarms itself if the door is finally locked and no more motion is detected. Therefore, inputting 0,0 while the system is armed, will disarm the system.
