@@ -45,11 +45,11 @@ Key points to take away:
 - As long as the door is locked and there is no motion detected, the system will remain disarmed. As such, inputting 0,0 repeatedly won't do anything to arm the system.
 - The system arms itself if the door is open and/or motion is detected. In other words, any input other than 0,0 while the system is disarmed, will arm the system.
 - The system disarms itself if the door is finally locked and no more motion is detected. Therefore, inputting 0,0 while the system is armed, will disarm the system.
-- As long as the door is open after arming the system, the system will remain armed.
-- If motion is detected while the system is armed, the alarm will be triggered.
-- The alarm will only stop after the door is relocked and no more motion is detected. This resets the system back from 'triggered' to 'armed'. 
+- As long as the door is open after arming the system, the system will remain armed. Meaning that inputting 1,0 while the system is armed, keeps the system armed.
+- If motion is detected while the system is armed, the alarm will be triggered. Hence, if the value for motionDetected is 1 while the system is armed, the alarm will trigger.
+- The alarm will only stop after the door is relocked and no more motion is detected. This resets the system back from 'triggered' to 'armed'. Thus, this reset can only be initiated if 0,0 is inputted while the system is 'triggered'.
 
-Below is a state and transition table derived from the diagram above.
+Below is the complete state and transition table derived from the diagram above.
 
 | Current State | Input: Door Open | Input: Motion Detected | Next State |
 | --- | --- | --- | --- |
