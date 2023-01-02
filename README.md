@@ -41,7 +41,7 @@ C --> B;
 G --> F;
 E --> D;
 ```
-What is this diagram saying?
+What is the diagram above saying?
 - As long as the door is locked and there is no motion detected, the system will remain disarmed. As such, inputting 0,0 repeatedly won't do anything to arm the system.
 - The system arms itself if the door is open and/or motion is detected. In other words, any input other than 0,0 while the system is disarmed, will arm the system.
 - The system disarms itself if the door is finally locked and no more motion is detected. Therefore, inputting 0,0 while the system is armed, will disarm the system.
@@ -68,7 +68,7 @@ Below is the complete state and transition table derived from the diagram above.
 
 From this table, we can derive K-maps for each state and their respective combinatorial boolean equations (I will write these equations as how they are displayed in the .c file for easier understanding):
 
-'disarmed':
+### 'disarmed':
 
 | \ | **00** | **01** |
 | --- | --- | --- |
@@ -78,7 +78,7 @@ From this table, we can derive K-maps for each state and their respective combin
 The equation for this table is:<br> 
 nextState = doorOpen'<br>
 
-'armed':
+### 'armed':
 
 | \ | **00** | **01** | **11** | **10** |
 | --- | --- | --- | --- | --- |
@@ -88,7 +88,7 @@ nextState = doorOpen'<br>
 The equation for this table is:<br> 
 nextState = doorOpen + motionDetected<br>
 
-'triggered':
+### 'triggered':
 
 | \ | **00** | **01** |
 | --- | --- | --- |
