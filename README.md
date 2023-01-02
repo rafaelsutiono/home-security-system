@@ -12,7 +12,7 @@ And requires 2 inputs:
 
 
 ## How it Works
-The alarm is disarmed by default, therefore its initial state is 'disarmed'. Take a look at the diagram below showing how the machine works.
+The alarm is disarmed by default, therefore its initial state is 'disarmed'. Take a look at the diagrams below showing how the machine works.
 
 **Input syntax:**<br>
 doorOpen,motionDetected<br>
@@ -21,6 +21,20 @@ doorOpen = 0       --> Door is locked<br>
 doorOpen = 1       --> Door is unlocked/open<br>
 motionDetected = 0 --> No motion is detected<br>
 motionDetected = 1 --> Motion is detected<br>
+
+```mermaid
+sequenceDiagram
+  participant disarmed as Disarmed
+  participant armed as Armed
+  participant triggered as Triggered
+
+  disarmed ->> disarmed: Door Closed, No Motion
+  disarmed ->> armed: Door Open
+  armed ->> armed: Door Open, Motion Detected
+  armed ->> triggered: Door Closed, Motion Detected
+  triggered ->> triggered: Door Open, Motion Detected
+  triggered ->> armed: Door Closed, No Motion
+```
 
 ```mermaid
 graph LR;
