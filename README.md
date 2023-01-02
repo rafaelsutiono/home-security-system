@@ -123,5 +123,5 @@ nextState = doorOpen'<br>
 
 ### Output
 Here is an example of the system running:
-![systemSS](systemSS.png)
+![systemSS](systemSS.PNG)
 
