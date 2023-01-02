@@ -28,12 +28,12 @@ sequenceDiagram
   participant armed as Armed
   participant triggered as Triggered
 
-  disarmed ->> disarmed: Door Closed, No Motion
+  disarmed ->> disarmed: Door Locked, No Motion
   disarmed ->> armed: Door Open
   armed ->> armed: Door Open, Motion Detected
-  armed ->> triggered: Door Closed, Motion Detected
+  armed ->> triggered: Door Locked, Motion Detected
   triggered ->> triggered: Door Open, Motion Detected
-  triggered ->> armed: Door Closed, No Motion
+  triggered ->> armed: Door Locked, No Motion
 ```
 
 The diagram above can be broken down into the one below:
@@ -113,4 +113,15 @@ nextState = doorOpen + motionDetected<br>
 The equation for this table is the same as 'disarmed':<br> 
 nextState = doorOpen'<br>
 
+## Implementation in C
+
+### To run the code on Windows in Visual Studio Code (VSC):
+1. Download the .c file in my repository and open it on VSC.
+2. Set up a debugging configuration for the project by making sure the C/C++ extension and a C compiler (preferably GCC) are installed in VSC. Once it's installed, create a `launch.json` configuration file.
+3. Once that's done, you may debug the file and select the configuration which has gcc.exe in it.
+4. Once the code is up and running, you may use the terminal to enter your inputs and play around with the FSM.
+
+### Output
+Here is an example of the system running:
+![systemSS](systemSS.png)
 
