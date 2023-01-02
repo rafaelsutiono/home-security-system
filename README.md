@@ -17,18 +17,18 @@ The alarm is disarmed by default, therefore its initial state is 'disarmed'. Tak
 ```mermaid
 graph LR;
 A[Start] --> B[disarmed];
-B --> C[disarmed] 0,0;
-B --> D[armed] 1,0;
-B --> D[armed] 0,1;
-B --> D[armed] 1,1;
-D --> E[armed] 0,0;
-D --> F[triggered] 1,0;
-D --> F[triggered] 0,1;
-D --> F[triggered] 1,1;
-F --> G[triggered] 0,0;
-F --> G[triggered] 1,0;
-F --> G[triggered] 0,1;
-F --> G[triggered] 1,1;
+B --> C[disarmed] doorOpen=0, motionDetected=0;
+B --> D[armed] doorOpen=1, motionDetected=0;
+B --> D[armed] doorOpen=0, motionDetected=1;
+B --> D[armed] doorOpen=1, motionDetected=1;
+D --> E[armed] doorOpen=0, motionDetected=0;
+D --> F[triggered] doorOpen=1, motionDetected=0;
+D --> F[triggered] doorOpen=0, motionDetected=1;
+D --> F[triggered] doorOpen=1, motionDetected=1;
+F --> G[triggered] doorOpen=0, motionDetected=0;
+F --> G[triggered] doorOpen=1, motionDetected=0;
+F --> G[triggered] doorOpen=0, motionDetected=1;
+F --> G[triggered] doorOpen=1, motionDetected=1;
 C --> B;
 G --> D;
 E --> D;
@@ -52,6 +52,23 @@ Below is a state and transition table derived from the diagram above.
 | triggered | 0 | 1 | triggered |
 | triggered | 1 | 1 | triggered |
 
+graph LR;
+A[Start] --> B[disarmed];
+B --> C[disarmed] 0,0;
+B --> D[armed] 1,0;
+B --> D[armed] 0,1;
+B --> D[armed] 1,1;
+D --> E[armed] 0,0;
+D --> F[triggered] 1,0;
+D --> F[triggered] 0,1;
+D --> F[triggered] 1,1;
+F --> G[triggered] 0,0;
+F --> G[triggered] 1,0;
+F --> G[triggered] 0,1;
+F --> G[triggered] 1,1;
+C --> B;
+G --> D;
+E --> D;
 
 ## K-Map
 TBC
