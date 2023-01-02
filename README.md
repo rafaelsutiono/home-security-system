@@ -71,6 +71,7 @@ From this table, we can derive K-maps for each state:
 disarmed
 
 | \ | **00** | **01** |
+| --- | --- | --- |
 | **0** | 1 | 0 |
 | **1** | 1 | 0 |
 
