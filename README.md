@@ -14,7 +14,7 @@ And requires 2 inputs:
 ## How it Works + Diagram
 The alarm is disarmed by default, therefore its initial state is 'disarmed'.
 
-```mermaid;
+```mermaid
 graph LR;
 A[Start] --> B[disarmed];
 B --> C[disarmed];
