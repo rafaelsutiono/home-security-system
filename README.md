@@ -41,7 +41,7 @@ C --> B;
 G --> F;
 E --> D;
 ```
-Key points to take away:
+What is this diagram saying?
 - As long as the door is locked and there is no motion detected, the system will remain disarmed. As such, inputting 0,0 repeatedly won't do anything to arm the system.
 - The system arms itself if the door is open and/or motion is detected. In other words, any input other than 0,0 while the system is disarmed, will arm the system.
 - The system disarms itself if the door is finally locked and no more motion is detected. Therefore, inputting 0,0 while the system is armed, will disarm the system.
@@ -70,7 +70,7 @@ From this table, we can derive K-maps for each state:
 
 disarmed
 
-| | **00** | **01** |
+| \ | **00** | **01** |
 | **0** | 1 | 0 |
 | **1** | 1 | 0 |
 
