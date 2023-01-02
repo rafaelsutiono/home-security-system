@@ -14,7 +14,7 @@ And requires 2 inputs:
 ## How it Works
 The alarm is disarmed by default, therefore its initial state is 'disarmed'. Take a look at the diagram below showing how the machine works.
 
-<u>Input syntax:</u><br>
+**Input syntax:**<br>
 doorOpen,motionDetected<br>
 
 doorOpen = 0       --> Door is locked<br>
@@ -29,21 +29,21 @@ B -- 0,0 --> C[disarmed];
 B -- 1,0 --> D[armed];
 B -- 0,1 --> D[armed];
 B -- 1,1 --> D[armed];
-D -- 0,0 --> E[armed];
-D -- 1,0 --> F[triggered];
+D -- 0,0 --> B[disarmed];
+D -- 1,0 --> E[armed];
 D -- 0,1 --> F[triggered];
 D -- 1,1 --> F[triggered];
-F -- 0,0 --> G[triggered];
+F -- 0,0 --> D[armed];
 F -- 1,0 --> G[triggered];
 F -- 0,1 --> G[triggered];
 F -- 1,1 --> G[triggered];
 C --> B;
-G --> D;
+G --> F;
 E --> D;
 ```
 Key points to take away:
 - As long as the door is locked and there is no motion detected, the system will remain disarmed. As such, inputting 0,0 repeatedly won't do anything to arm the system.
-- Save file first, TBC.
+- 
 
 Below is a state and transition table derived from the diagram above.
 
