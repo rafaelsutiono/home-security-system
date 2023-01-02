@@ -66,13 +66,36 @@ Below is the complete state and transition table derived from the diagram above.
 | triggered | 0 | 1 | triggered |
 | triggered | 1 | 1 | triggered |
 
-From this table, we can derive K-maps for each state:
+From this table, we can derive K-maps for each state and their respective combinatorial boolean equations (I will write these equations as how they are displayed in the .c file for easier understanding):
 
-disarmed
+'disarmed':
 
 | \ | **00** | **01** |
 | --- | --- | --- |
-| **0** | 1 | 0 |
-| **1** | 1 | 0 |
+| **0** | *1* | 0 |
+| **1** | *1* | 0 |
+
+The equation for this table is:<br> 
+nextState = doorOpen'<br>
+
+'armed':
+
+| \ | **00** | **01** | **11** | **10** |
+| --- | --- | --- | --- | --- |
+| **0** | 0 | 0 | *1* | *1* |
+| **1** | 0 | 0 | *1* | *1* |
+
+The equation for this table is:<br> 
+nextState = doorOpen + motionDetected<br>
+
+'triggered':
+
+| \ | **00** | **01** |
+| --- | --- | --- |
+| **0** | *1* | 0 |
+| **1** | *1* | 0 |
+
+The equation for this table is the same as 'disarmed':<br> 
+nextState = doorOpen'<br>
 
 
