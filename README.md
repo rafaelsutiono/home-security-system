@@ -14,8 +14,9 @@ And requires 2 inputs:
 ## How it Works
 The alarm is disarmed by default, therefore its initial state is 'disarmed'. Take a look at the diagram below showing how the machine works.
 
-Input syntax:<br>
+<u>Input syntax:</u><br>
 doorOpen,motionDetected<br>
+
 doorOpen = 0       --> Door is locked<br>
 doorOpen = 1       --> Door is unlocked/open<br>
 motionDetected = 0 --> No motion is detected<br>
