@@ -17,19 +17,22 @@ The alarm is disarmed by default, therefore its initial state is 'disarmed'. Tak
 ```mermaid
 graph LR;
 A[Start] --> B[disarmed];
-B --> C[disarmed];
-B --> D[armed];
-B --> D[armed];
-D --> E[armed];
-D --> F[triggered];
-D --> F[triggered];
-F --> G[triggered];
-F --> G[triggered];
-F --> G[triggered];
-F --> G[triggered];
+B --> C[disarmed] 0,0;
+B --> D[armed] 1,0;
+B --> D[armed] 0,1;
+B --> D[armed] 1,1;
+D --> E[armed] 0,0;
+D --> F[triggered] 1,0;
+D --> F[triggered] 0,1;
+D --> F[triggered] 1,1;
+F --> G[triggered] 0,0;
+F --> G[triggered] 1,0;
+F --> G[triggered] 0,1;
+F --> G[triggered] 1,1;
 C --> B;
 G --> D;
 E --> D;
+
 ```
 
 Below is a state and transition table derived from the diagram above.
