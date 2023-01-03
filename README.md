@@ -99,7 +99,12 @@ s0' = d
 ### Next State (s1'):
 ![s1kmap](images/s1kmap.jpg)
 
-s1' = m + s0s1 + s0d
+s1' = m + s0s1 + s0d<br>
+<br>
+Since output is the same as 'Next State':<br>
+o0 = s0'<br>
+o1 = s1'<br>
+Note: s0' and s1' together represent 'Next State' and are not to be confused with s0 inverted and s1 inverted respectively.
 
 ## Implementation in C
 
