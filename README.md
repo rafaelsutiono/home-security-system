@@ -67,7 +67,6 @@ What are the diagrams above saying?
 Below is the complete state and transition table derived from the diagram above.
 
 | Present State | Present State | Input | Input | Next State | Next State | Output | Output |
-|----|----|---|---|-----|-----|----|----|
 | s0 | s1 | d | m | s0' | s1' | o0 | o1 |
 |----|----|---|---|-----|-----|----|----|
 | 1  | 0  | 0 | 0 | 1   | 0   | 1  | 0  |
