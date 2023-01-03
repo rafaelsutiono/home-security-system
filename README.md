@@ -1,4 +1,4 @@
-# Simple Security System
+# Home Security System
 
 ## States and Inputs
 This simple FSM contains 3 states:
