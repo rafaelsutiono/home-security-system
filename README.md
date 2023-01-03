@@ -118,7 +118,7 @@ Note: Both s0' and s1' in this case represent 'Next State' and are not to be con
 Here is an example of the system running:
 ![systemSS](images/systemSS.PNG)
 
-The images below run the same program as the image above, but it has now been updated to make the output visualized:
+The images below run the same program as the image above, but the code has now been updated to make the output visualized:
 - System disarmed:
 
 ![DISARMED](images/DISARMED.PNG)
