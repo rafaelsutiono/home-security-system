@@ -113,3 +113,13 @@ s1' = m + s0s1 + s0d
 Here is an example of the system running:
 ![systemSS](images/systemSS.PNG)
 
+Below is the same program, but it has been updated to make the output visualized:
+- System disarmed:
+![DISARMED](images/DISARMED.PNG)
+
+- System armed:
+![ARMED](images/ARMED.PNG)
+
+- Alarm triggered:
+![TRIGGERED](images/TRIGGERED.PNG)
+
