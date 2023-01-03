@@ -21,9 +21,9 @@ int main() {
 
     // update state based on inputs
     if(state == 0) { // disarmed
-      if(doorOpen == 0) {
+      if(doorOpen == 0 && motionDetected == 0) {
         state = 0; // system remains disarmed as long as the door is locked
-      } else {
+      } else if(doorOpen == 1 || motionDetected == 1){
         state = 1; // arm system if door is open and/or motion is detected
       }
     } else if(state == 1) { // armed
