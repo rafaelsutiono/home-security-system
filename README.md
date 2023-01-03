@@ -87,11 +87,17 @@ Below is the complete state and transition table derived from the diagram above.
 | 1  | 1  | 1 | 1 | 0   | 1   | 0  | 1  |
 
 - d and m represent doorOpen and motionDetected, respectively.
-- s0 and s1 represent 'system disarmed' and 'alarm triggered', respectively. In s0, a value of 0 means that the system is armed, while a value of 1 means that the system is disarmed. In s1, a value of 0 means that the alarm is inactive, while a value of 1 means that the alarm is triggered.
+- s0 and s1 represent 'system disarmed' and 'alarm triggered', respectively. In s0, a value of 0 means that the system is armed, while a value of 1 means that the system is disarmed. In s1, a value of 0 means that the alarm is inactive, while a value of 1 means that the alarm is triggered. The same applies for s0' and s1' respectively.
 
-From this table, we can derive K-maps for each state and their respective combinatorial boolean equations:
+From this table, we can derive K-maps for the outputs and their respective combinatorial boolean equations. Note that the output is the same as 'Next State', so only two K-Maps will be necessary:
 
-IN PROGRESS
+### Next State (s0'):
+![s0 kmap](s0 kmap.PNG)
+s0' = d
+
+### Next State (s1'):
+![s1 kmap](s1 kmap.PNG)
+s1' = m + s0s1 + s0d
 
 ## Implementation in C
 
