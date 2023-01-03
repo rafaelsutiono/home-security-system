@@ -92,11 +92,11 @@ Below is the complete state and transition table derived from the diagram above.
 From this table, we can derive K-maps for the outputs and their respective combinatorial boolean equations. Note that the output is the same as 'Next State', so only two K-Maps will be necessary:
 
 ### Next State (s0'):
-![s0 kmap](images/s0 kmap.JPG)
+![s0 kmap](images/s0 kmap.jpg)
 s0' = d
 
 ### Next State (s1'):
-![s1 kmap](images/s1 kmap.JPG)
+![s1 kmap](images/s1 kmap.jpg)
 s1' = m + s0s1 + s0d
 
 ## Implementation in C
