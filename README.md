@@ -115,11 +115,14 @@ Here is an example of the system running:
 
 Below is the same program, but it has been updated to make the output visualized:
 - System disarmed:
+
 ![DISARMED](images/DISARMED.PNG)
 
 - System armed:
+
 ![ARMED](images/ARMED.PNG)
 
 - Alarm triggered:
+
 ![TRIGGERED](images/TRIGGERED.PNG)
 
