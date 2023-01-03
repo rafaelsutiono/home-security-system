@@ -93,10 +93,12 @@ From this table, we can derive K-maps for the outputs and their respective combi
 
 ### Next State (s0'):
 ![s0 kmap](images/s0 kmap.jpg)
+
 s0' = d
 
 ### Next State (s1'):
 ![s1 kmap](images/s1 kmap.jpg)
+
 s1' = m + s0s1 + s0d
 
 ## Implementation in C
