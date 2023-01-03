@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <windows.h>
 
 int main() {
   int state = 0; // 0 = disarmed, 1 = armed, 2 = triggered
