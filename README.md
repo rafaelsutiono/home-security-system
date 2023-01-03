@@ -67,8 +67,8 @@ What are the diagrams above saying?
 Below is the complete state and transition table derived from the diagram above.
 
 | Present State | Present State | Input | Input | Next State | Next State | Output | Output |
-| s0 | s1 | d | m | s0' | s1' | o0 | o1 |
 |----|----|---|---|-----|-----|----|----|
+| s0 | s1 | d | m | s0' | s1' | o0 | o1 |
 | 1  | 0  | 0 | 0 | 1   | 0   | 1  | 0  |
 | 1  | 0  | 1 | 0 | 0   | 0   | 0  | 0  |
 | 1  | 0  | 1 | 1 | 0   | 0   | 0  | 0  |
@@ -86,6 +86,8 @@ Below is the complete state and transition table derived from the diagram above.
 | 1  | 1  | 1 | 0 | 0   | 1   | 0  | 1  |
 | 1  | 1  | 1 | 1 | 0   | 1   | 0  | 1  |
 
+- d and m represent doorOpen and motionDetected, respectively.
+- s0 and s1 represent 'system disarmed' and 'alarm triggered', respectively. In s0, a value of 0 means that the system is armed, while a value of 1 means that the system is disarmed. In s1, a value of 0 means that the alarm is inactive, while a value of 1 means that the alarm is triggered.
 
 From this table, we can derive K-maps for each state and their respective combinatorial boolean equations:
 
