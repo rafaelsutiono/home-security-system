@@ -5,6 +5,7 @@ int main() {
   int doorOpen = 0; // 0 = locked, 1 = open
   int motionDetected = 0; // 0 = no motion, 1 = motion detected
   int initialState = 0; // initial state (0 = disarmed, 1 = armed)
+  int oldState = -1; // variable to store the previous state
 
   // set initial state
   if(initialState == 0) {
@@ -44,16 +45,29 @@ int main() {
     }
 
 
-    // print current state
-    if(state == 0) {
-    printf("==SYSTEM: DISARMED==\n");
-    printf("ㅤ\n");
-    } else if(state == 1) {
-    printf("==SYSTEM: ARMED==\n");
-    printf("ㅤ\n");
-    } else if(state == 2) {
-    printf("==ALARM TRIGGERED==\n");
-    printf("ㅤ\n");
+    // print current state if it has changed
+    if(state != oldState) {
+      oldState = state;
+      printf("       :================:\n");
+      if (state==0) {
+        printf("      /||\033[47m              \033[0m||\n");
+        printf("     / ||\033[47m   DISARMED   \033[0m||\n");
+        printf("    |  ||\033[47m              \033[0m||\n");
+        printf("     \\ ||\033[47m              \033[0m||\n");
+      } else if (state==1) {
+        printf("      /||\033[42m              \033[0m||\n");
+        printf("     / ||\033[42m     ARMED    \033[0m||\n");
+        printf("    |  ||\033[42m              \033[0m||\n");
+        printf("     \\ ||\033[42m              \033[0m||\n");
+      } else if (state==2) {
+        printf("      /||\033[41m              \033[0m||\n");
+        printf("     / ||\033[41m \033[33m!!\033[37mTRIGGERED\033[33m!!\033[37m\033[0m||\n");
+        printf("    |  ||\033[41m              \033[0m||\n");
+        printf("     \\ ||\033[41m              \033[0m||\n");
+      }
+      printf("       ==================\n");
+      printf("            /  \033[36m⊞\033[0m  \\\n");
+      printf("          ############\n");
     }
   }
 
