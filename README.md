@@ -22,19 +22,7 @@ doorOpen = 1       --> Door is unlocked/open<br>
 motionDetected = 0 --> No motion is detected<br>
 motionDetected = 1 --> Motion is detected<br>
 
-```mermaid
-sequenceDiagram
-  participant disarmed as Disarmed
-  participant armed as Armed
-  participant triggered as Triggered
-
-  disarmed ->> disarmed: Door Locked, No Motion
-  disarmed ->> armed: Door Open
-  armed ->> armed: Door Open, Motion Detected
-  armed ->> triggered: Door Locked, Motion Detected
-  triggered ->> triggered: Door Open, Motion Detected
-  triggered ->> armed: Door Locked, No Motion
-```
+![FSMdiagram](images/FSMdiagram.PNG)
 
 The diagram above can be broken down into the one below:
 ```mermaid
