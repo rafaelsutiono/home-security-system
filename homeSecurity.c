@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void s1() { // disarmed, inputs = 0,0
+void ss1() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -31,7 +31,7 @@ void s1() { // disarmed, inputs = 0,0
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s2() { // armed, inputs = 0,0
+void s2() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -62,7 +62,7 @@ void s2() { // armed, inputs = 0,0
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s3() { // armed, inputs = 0,1
+void s3() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -93,7 +93,7 @@ void s3() { // armed, inputs = 0,1
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s4() { // armed, inputs = 1,0
+void s4() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -124,7 +124,7 @@ void s4() { // armed, inputs = 1,0
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s5() { // armed, inputs = 1,1
+void s5() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -155,7 +155,7 @@ void s5() { // armed, inputs = 1,1
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s6() { // triggered, inputs = 0,1
+void s6() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -186,7 +186,7 @@ void s6() { // triggered, inputs = 0,1
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s7() { // triggered, inputs = 1,0
+void s7() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -217,7 +217,7 @@ void s7() { // triggered, inputs = 1,0
     printf("                            _.--\"   \"   \"   \"--._\n");
 }
 
-void s8() { // triggered, inputs = 1,1
+void s8() {
     printf("       ______________________________________________________________\n");
     printf("     .'  __________________________________________________________  '.\n");
     printf("     : .'                                                          '. :\n");
@@ -246,73 +246,52 @@ void s8() { // triggered, inputs = 1,1
     printf("                                     ||\n");
     printf("                                  ___||___\n");
     printf("                            _.--\"   \"   \"   \"--._\n");
+}
+
+// combinatorial boolean equations
+void states(int s0, int s1, int i0, int i1, int* S0, int* S1) {
+  *S0 = !s1 & !i0 & !i1;
+  *S1 = !s0 & i1 | s1 & i0;
 }
 
 int main(void) {
-  int state = 0; // 0 = disarmed, 1 = armed, 2 = triggered
-  int doorOpen = 0; // 0 = locked, 1 = open
-  int motionDetected = 0; // 0 = no motion, 1 = motion detected
-  int initialState = 0; // initial state (0 = disarmed, 1 = armed)
-
-  // set initial state
-  if(initialState == 0) {
-    state = 0;
-  }
+  int i0 = 0; 
+  int i1 = 0;
+  int S0 = 1;
+  int S1 = 0;
 
   // loop indefinitely
   while(1) {
-    printf("\033c"); // clear terminal
+    printf("\033c"); // clear screen
     printf("\033[1;1H"); // move cursor to upper left
 
-    // update state based on inputs
-    if(state == 0) { // disarmed
-      if(doorOpen == 0 && motionDetected == 0) {
-        state = 0; // system remains disarmed as long as the door is locked
-      } else if(doorOpen == 1 || motionDetected == 1){
-        state = 1; // arm system if door is open and/or motion is detected
-      }
-    } else if(state == 1) { // armed
-      if(doorOpen == 0 && motionDetected == 0) {
-        state = 0; // disarm system if door is locked and no motion is detected
-      } else if(doorOpen == 1 && motionDetected == 0) {
-        state = 1; // arm system if door is open
-      }
-      else {
-        state = 2; // trigger alarm if motion is detected
-      }
-    } else if(state == 2) { // triggered
-      if(doorOpen == 0 && motionDetected == 0) {
-        state = 1; // reset alarm if door is locked and no motion is detected
-      } else {
-        state = 2; // alarm keeps on ringing until the door is locked and no motion is detected
-      } 
-    }
-    printf("\033[0m");
-
-    // output selector based on state and inputs
-    if (state == 0 && doorOpen == 0 && motionDetected == 0) {
-      s1();
-    } else if (state == 1 && doorOpen == 0 && motionDetected == 0) {
+    // output selector
+    if (S0 == 1 && S1 == 0 && i0 == 0 && i1 == 0) {
+      ss1();
+    } else if (S0 == 0 && S1 == 0 && i0 == 0 && i1 == 0) {
       s2();
-    } else if (state == 1 && doorOpen == 0 && motionDetected == 1) {
+    } else if (S0 == 0 && S1 == 0 && i0 == 0 && i1 == 1) {
       s3();
-    } else if (state == 1 && doorOpen == 1 && motionDetected == 0) {
+    } else if (S0 == 0 && S1 == 0 && i0 == 1 && i1 == 0) {
       s4();
-    } else if (state == 1 && doorOpen == 1 && motionDetected == 1) {
+    } else if (S0 == 0 && S1 == 0 && i0 == 1 && i1 == 1) {
       s5();
-    } else if (state == 2 && doorOpen == 0 && motionDetected == 1) {
+    } else if (S0 == 0 && S1 == 1 && i0 == 0 && i1 == 1) {
       s6();
-    } else if (state == 2 && doorOpen == 1 && motionDetected == 0) {
+    } else if (S0 == 0 && S1 == 1 && i0 == 1 && i1 == 0) {
       s7();
-    } else if (state == 2 && doorOpen == 1 && motionDetected == 1) {
+    } else if (S0 == 0 && S1 == 1 && i0 == 1 && i1 == 1) {
       s8();
     }
 
     // check for input
     printf("Enter door open status (0 or 1): ");
-    scanf("%d", &doorOpen);
+    scanf("%d", &i0);
     printf("Enter motion detected status (0 or 1): ");
-    scanf("%d", &motionDetected);
+    scanf("%d", &i1);
+
+    // update state based on inputs
+    states(S0,S1,i0,i1,&S0,&S1);
   }
   
 
