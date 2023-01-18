@@ -56,7 +56,7 @@ Below is the complete state and transition table derived from the diagram above.
 
 | Present State | Present State | Input | Input | Next State | Next State | Output | Output |
 |----|----|---|---|-----|-----|----|----|
-| s0 | s1 | d | m | s0' | s1' | o0 | o1 |
+| s0 | s1 | d | m | S0 | S1 | o0 | o1 |
 | 1  | 0  | 0 | 0 | 1   | 0   | 1  | 0  |
 | 1  | 0  | 1 | 0 | 0   | 0   | 0  | 0  |
 | 1  | 0  | 1 | 1 | 0   | 0   | 0  | 0  |
@@ -75,24 +75,23 @@ Below is the complete state and transition table derived from the diagram above.
 | 1  | 1  | 1 | 1 | x   | x   | x  | x  |
 
 - d and m represent doorOpen and motionDetected, respectively.
-- s0 and s1 represent 'system disarmed' and 'alarm triggered', respectively. In s0, a value of 0 means that the system is armed, while a value of 1 means that the system is disarmed. In s1, a value of 0 means that the alarm is inactive, while a value of 1 means that the alarm is triggered. The same applies for s0' and s1' respectively.
+- s0 and s1 represent 'system disarmed' and 'alarm triggered', respectively. In s0, a value of 0 means that the system is armed, while a value of 1 means that the system is disarmed. In s1, a value of 0 means that the alarm is inactive, while a value of 1 means that the alarm is triggered. The same applies for S0 and S1 respectively.
 
-From this table, we can derive K-maps for the outputs and their respective combinatorial boolean equations. Note that the output is the same as 'Next State', so only two K-Maps will be necessary:
+From this table, we can derive K-maps for the outputs and their respective combinatorial equations. Note that the output is the same as 'Next State', so only two K-Maps will be necessary:
 
-### Next State (s0'):
-![s0kmap](images/s0kmap.jpg)
+### Next State (S0):
+![s0kmap](images/s0.jpg)
 
-s0' = d
+S0 = s1'd'm'
 
-### Next State (s1'):
-![s1kmap](images/s1kmap.jpg)
+### Next State (S1):
+![s1kmap](images/s1.jpg)
 
-s1' = m + s0s1 + s0d<br>
+S1 = s0'm + s1d<br>
 <br>
 Since output is the same as 'Next State':<br>
-o0 = s0'<br>
-o1 = s1'<br>
-Note: Both s0' and s1' in this case represent 'Next State' and are not to be confused with s0 inverted and s1 inverted respectively.
+o0 = S0<br>
+o1 = S1<br>
 
 ## Implementation in C
 
