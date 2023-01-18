@@ -69,10 +69,10 @@ Below is the complete state and transition table derived from the diagram above.
 | 0  | 1  | 0 | 1 | 0   | 1   | 0  | 1  |
 | 0  | 1  | 1 | 0 | 0   | 1   | 0  | 1  |
 | 0  | 1  | 1 | 1 | 0   | 1   | 0  | 1  |
-| 1  | 1  | 0 | 0 | x   | x   | 1  | 1  |
-| 1  | 1  | 0 | 1 | x   | x   | 1  | 1  |
-| 1  | 1  | 1 | 0 | x   | x   | 0  | 1  |
-| 1  | 1  | 1 | 1 | x   | x   | 0  | 1  |
+| 1  | 1  | 0 | 0 | x   | x   | x  | x  |
+| 1  | 1  | 0 | 1 | x   | x   | x  | x  |
+| 1  | 1  | 1 | 0 | x   | x   | x  | x  |
+| 1  | 1  | 1 | 1 | x   | x   | x  | x  |
 
 - d and m represent doorOpen and motionDetected, respectively.
 - s0 and s1 represent 'system disarmed' and 'alarm triggered', respectively. In s0, a value of 0 means that the system is armed, while a value of 1 means that the system is disarmed. In s1, a value of 0 means that the alarm is inactive, while a value of 1 means that the alarm is triggered. The same applies for s0' and s1' respectively.
